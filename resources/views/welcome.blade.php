@@ -44,7 +44,7 @@ include resource_path('views/data.php');
                                 echo '<tbody>
                                 <tr>
                                 <td>' . $row['movie_id'] . '</td>
-                                <td><a href="http://localhost/my-laravel-app/resources/views/searchData.php?data=' . $row['movie_price'] . '">' . $row['movie_name'] . '</a></td>
+                                <td><a href="http://localhost/my-laravel-app/resources/views/searchData.php?data=' . $row['movie_name'] . '">' . $row['movie_name'] . '</a></td>
                                 <td>' . $row['year_released'] . '</td>
                                 <td>' . $row['genre'] . '</td>
                                 </tr>

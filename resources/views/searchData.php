@@ -15,35 +15,31 @@ include 'data.php';
     <?php
     
     if (isset($_GET['data'])) {
-        $movie_price = $_GET['data']; 
-
-       
-        $sql = "SELECT * FROM `disneymovie`";
+        $movie_name = $_GET['data'];
+    
+        $sql = "SELECT * FROM `disneymovie` WHERE movie_name = '$movie_name'";
         $result = mysqli_query($con, $sql);
-
+    
         if ($result) {
             $row = mysqli_fetch_assoc($result);
-           echo  '  <div class="container">
-
-            <div class="jumbotron">
-            <h1 class="display-4">'.$row['movie_name'].'</h1>
-            <p class="lead">Movie Price '.$row['movie_price'].'</p>
-            <hr class="my-4">
-       
-           <p class="lead">
-           
-           </p>
-       </div>
-     </div>' 
-            
-            ;
-
-
-            
+    
+            if ($row) {
+                echo '
+                    <div class="container">
+                        <div class="jumbotron">
+                            <h1 class="display-4">' . $row['movie_name'] . '</h1>
+                            <p class="lead">Movie Price: php ' . $row['movie_price'] . '</p>
+                            <hr class="my-4">
+                            <p class="lead"></p>
+                        </div>
+                    </div>';
+            } else {
+                echo "Movie not found.";
+            }
         } else {
             echo "Error in SQL query: " . mysqli_error($con);
         }
-    } 
+    }
     ?>
 
 
