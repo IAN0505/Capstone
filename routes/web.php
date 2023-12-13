@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::match(['get', 'post'], '/', function () {
     return view('welcome');
 });
+
+
+Route::get('/', function () {
+    return view('searchData');
+});
+
